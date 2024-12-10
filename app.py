@@ -10,7 +10,7 @@ if 'experiment_no' not in st.session_state:
 if 'df_experiment_results' not in st.session_state:
     st.session_state['df_experiment_results'] = pd.DataFrame(columns=['no', 'iterations', 'mean'])
 
-st.header('Jogando uma moeda')
+st.header('Correlacionando jogar uma moeda com a Lei dos Grandes Números')
 
 chart = st.line_chart([0.5])
 
@@ -32,13 +32,13 @@ def toss_coin(n):
 
     return mean
 
-number_of_trials = st.slider('Número de tentativas?', 1, 1000, 10)
-start_button = st.button('Executar')
+number_of_trials = st.slider('Número de vezes em que a moeda será jogada', 1, 10000, 10)
+start_button = st.button('Jogar')
 
 if start_button:
     st.write(f'Executando o experimento de {number_of_trials} tentativas.')
     mean = toss_coin(number_of_trials)
-Agora, usamos estas variáveis para exibir o DataFrame após cada execução do aplicativo:
+#Agora, usamos estas variáveis para exibir o DataFrame após cada execução do aplicativo:
 
 import pandas as pd
 import scipy.stats
